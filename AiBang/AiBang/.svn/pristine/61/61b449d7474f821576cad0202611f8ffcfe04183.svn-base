@@ -1,0 +1,70 @@
+package edu.jxsd.x3510.activity;
+
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+
+public class IndexActivity extends Activity {
+
+//	BMapManager mBMapMan = null;
+//	MapView mMapView = null;
+	 @Override
+     public void onCreate(Bundle savedInstanceState){
+     	super.onCreate(savedInstanceState);
+     	setContentView(R.layout.activity_index);
+     /*	mBMapMan=new BMapManager(getApplication());
+     	mBMapMan.init("6B8D3781AE909CECD0E23D101F0ED6CCBE6A0FB8", null);  
+     	//注意：请在试用setContentView前初始化BMapManager对象，否则会报错    	
+     	mMapView=(MapView)findViewById(R.id.bmapsView);
+     	mMapView.setBuiltInZoomControls(true);
+     	//设置启用内置的缩放控件
+     	MapController mMapController=mMapView.getController();
+     	// 得到mMapView的控制权,可以用它控制和驱动平移和缩放
+     	GeoPoint point =new GeoPoint((int)(28.6802* 1E6),(int)(116.0321* 1E6));
+     	//用给定的经纬度构造一个GeoPoint，单位是微度 (度 * 1E6)
+     	mMapController.setCenter(point);//设置地图中心点
+     	mMapController.setZoom(12);//设置地图zoom级别
+     	mMapView.setTraffic(true);*/
+     	
+     }
+/*	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_index);
+	}
+*/
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.activity_index, menu);
+		return true;
+	}
+	
+/*	  @Override
+      protected void onDestroy(){
+              mMapView.destroy();
+              if(mBMapMan!=null){
+                      mBMapMan.destroy();
+                      mBMapMan=null;
+              }
+              super.onDestroy();
+      }
+      @Override
+      protected void onPause(){
+              mMapView.onPause();
+              if(mBMapMan!=null){
+                      mBMapMan.stop();
+              }
+              super.onPause();
+      }
+      @Override
+      protected void onResume(){
+              mMapView.onResume();
+              if(mBMapMan!=null){
+                      mBMapMan.start();
+              }
+              super.onResume();
+      }*/
+
+}

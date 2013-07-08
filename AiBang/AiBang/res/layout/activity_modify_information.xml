@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#eee"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/actionbar_bg_blue_meizu_transparent"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/activity_modify_infomation_btn_modifyBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:drawableLeft="@drawable/clickable_flag_light"
+            android:text="@string/personal_information"
+            android:textColor="#fff" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/activity_modify_infomation_rv_personal_photo"
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_marginTop="14dp"
+            android:layout_weight="0.68"
+            android:background="@drawable/information_first_item"
+            android:clickable="true"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="72dp"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:text="@string/personal_photo"
+                android:textColor="#000"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:id="@+id/activity_modify_infomation_iv_personal_photo"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dp"
+                android:contentDescription="@string/name"
+                android:onClick="show_click"
+                android:padding="8dp"
+                android:scaleType="matrix"
+                android:src="@drawable/iv_head_portrait" />
+
+            <ImageView
+                android:id="@+id/xh_head_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:contentDescription="@+id/personal_name"
+                android:scaleType="matrix"
+                android:src="@drawable/personal_name_submenu_selector" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/activity_modify_infomation_rl_nameEdit"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/information_next_item"
+            android:clickable="true"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:id="@+id/nameView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="@string/personal_name"
+                android:textColor="#000"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/activity_modify_infomation_tv_nameEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/nameView"
+                android:layout_alignTop="@id/nameView"
+                android:layout_marginLeft="180dp"
+                android:layout_toRightOf="@id/nameView"
+                android:gravity="center"
+                android:text="@string/name"
+                android:textColor="#999"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:contentDescription="@+id/personal_name"
+                android:scaleType="matrix"
+                android:src="@drawable/personal_name_submenu_selector" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/activity_modify_infomation_rl_chooseAge"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/information_last_item"
+            android:clickable="true"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:id="@+id/activity_modify_infomation_tv_ageView"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:text="@string/personal_age"
+                android:textColor="#000"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/activity_modify_infomation_tv_ageEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/activity_modify_infomation_tv_ageView"
+                android:layout_alignTop="@id/activity_modify_infomation_tv_ageView"
+                android:layout_marginLeft="250dp"
+                android:layout_toRightOf="@id/activity_modify_infomation_tv_ageView"
+                android:gravity="center"
+                android:text="@string/age"
+                android:textColor="#999"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:contentDescription="@+id/personal_name"
+                android:scaleType="matrix"
+                android:src="@drawable/personal_name_submenu_selector" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/activity_modify_infomation_rl_chooseSex"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/information_first_item"
+            android:clickable="true"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:id="@+id/activity_modify_infomation_tv_sexView"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:text="@string/personal_sex"
+                android:textColor="#000"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/activity_modify_infomation_tv_sexEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/activity_modify_infomation_tv_sexView"
+                android:layout_alignTop="@id/activity_modify_infomation_tv_sexView"
+                android:layout_marginLeft="250dp"
+                android:layout_toRightOf="@id/activity_modify_infomation_tv_sexView"
+                android:gravity="center"
+                android:text="@string/sex"
+                android:textColor="#999"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:contentDescription="@+id/personal_name"
+                android:scaleType="matrix"
+                android:src="@drawable/personal_name_submenu_selector" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/activity_modify_infomation_rl_chooseSchool"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/information_next_item"
+            android:clickable="true"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:id="@+id/activity_modify_infomation_tv_schoolView"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:text="@string/personal_school"
+                android:textColor="#000"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/activity_modify_infomation_tv_schoolEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/activity_modify_infomation_tv_schoolView"
+                android:layout_alignTop="@id/activity_modify_infomation_tv_schoolView"
+                android:layout_marginLeft="180dp"
+                android:layout_toRightOf="@id/activity_modify_infomation_tv_schoolView"
+                android:gravity="center"
+                android:text="江西师范大学"
+                android:textColor="#999"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:contentDescription="@+id/personal_name"
+                android:scaleType="matrix"
+                android:src="@drawable/personal_name_submenu_selector" />
+        </RelativeLayout>
+
+        <!-- android:id="@+id/activity_modify_infomation_rv_personlized_signatureEdit" -->
+
+        <RelativeLayout
+            android:id="@+id/acticity_modify_infomation_rl_personalized_signatureEdit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/information_last_item"
+            android:clickable="true"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:id="@+id/activity_modify_infomation_tv_personlized_signatureView"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:text="@string/personlized_signature"
+                android:textColor="#000"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/activity_modify_infomation_tv_personlized_signatureEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/activity_modify_infomation_tv_personlized_signatureView"
+                android:layout_alignTop="@id/activity_modify_infomation_tv_personlized_signatureView"
+                android:layout_marginLeft="150dp"
+                android:layout_toRightOf="@id/activity_modify_infomation_tv_personlized_signatureView"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#999"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:contentDescription="@+id/personal_name"
+                android:scaleType="matrix"
+                android:src="@drawable/personal_name_submenu_selector" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

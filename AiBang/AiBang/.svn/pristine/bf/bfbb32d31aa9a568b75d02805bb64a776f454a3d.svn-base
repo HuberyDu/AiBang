@@ -1,0 +1,67 @@
+package edu.jxsd.x3510.activity;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.Intent;
+import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ImageView;
+
+public class HelpContentActivity extends Activity {
+    private ImageView toUserInfo;
+    private Button backBtn;
+    private ImageView leaveMsg;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_help_content);
+		toUserInfo = (ImageView)findViewById(R.id.activity_help_content_iv_go_userInfo);
+		toUserInfo.setOnClickListener(new UListener());
+		backBtn = (Button)findViewById(R.id.activity_help_content_btn_backButton);
+		backBtn.setOnClickListener(new BListener());
+		leaveMsg = (ImageView)findViewById(R.id.activity_help_content_iv_leave_message);
+		leaveMsg.setOnClickListener(new LOnclickListener());
+	}
+	
+	class LOnclickListener implements OnClickListener{
+
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			Intent intent = new Intent(HelpContentActivity.this,CommentActivity.class);
+			startActivity(intent);
+			overridePendingTransition(R.anim.push_left_in,R.anim.push_left_out);
+		}
+		
+	}
+class UListener implements OnClickListener{
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		Intent intent = new Intent(HelpContentActivity.this,PersonalInformationActivity.class);
+		startActivity(intent);
+		overridePendingTransition(R.anim.push_left_in,R.anim.push_left_out);
+	}
+	
+}
+class BListener implements OnClickListener{
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		finish();
+		overridePendingTransition(R.anim.push_right_in,R.anim.push_right_out);
+	}
+	
+}
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.help_content, menu);
+		return true;
+	}
+
+}

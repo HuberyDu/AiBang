@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/siderbar_bgcolor" >
+
+    <LinearLayout
+        android:id="@+id/left_behind_ll_account"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/actionbar_dark_bg"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+         >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/siderbar_account"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/left_behind_ll_account"
+        android:orientation="horizontal"
+        android:padding="10dp" >
+
+        <ImageView
+            android:id="@+id/left_behind_iv_head_portrait"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/iv_head_portrait" />
+
+        <TextView
+            android:id="@+id/left_behind_tv_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="他好像只狗"
+            android:textColor="@color/white"
+            android:textSize="16sp" 
+            android:paddingLeft="10dp"/>
+    </LinearLayout>
+
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/left_behind_btn_map"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sidebar_button_bg_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
+            android:text="@string/map"
+            android:textColor="@color/siderbar_font_color"
+            android:textSize="16sp" />
+        
+        <Button
+            android:id="@+id/left_behind_btn_help"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sidebar_button_bg_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
+            android:text="@string/siderbar_help"
+            android:textColor="@color/siderbar_font_color"
+            android:textSize="16sp" />
+        
+        <Button
+            android:id="@+id/left_behind_btn_personalmsg"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sidebar_button_bg_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
+            android:text="@string/siderbar_private_message"
+            android:textColor="@color/siderbar_font_color"
+            android:textSize="16sp" />
+        <Button
+            android:id="@+id/left_behind_btn_comment"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sidebar_button_bg_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
+            android:text="@string/siderbar_comment"
+            android:textColor="@color/siderbar_font_color"
+            android:textSize="16sp" />
+        <Button
+            android:id="@+id/left_behind_btn_personalPage"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sidebar_button_bg_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
+            android:text="@string/siderbar_personal_homepage"
+            android:textColor="@color/siderbar_font_color"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

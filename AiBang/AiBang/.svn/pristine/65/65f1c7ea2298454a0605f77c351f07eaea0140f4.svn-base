@@ -1,0 +1,105 @@
+package edu.jxsd.x3510.activity;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import edu.jxsd.x3510.activity.R;
+import edu.jxsd.x3510.http.HttpUtility;
+
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Intent;
+import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+@SuppressLint("HandlerLeak")
+public class LoginActivity extends Activity {
+	public static final String PATH = "http://10.3.131.171:8080/AiBangServer/login.action";
+	private EditText loginEmail;
+	private EditText loginPassword;
+	private Button loginButton;
+	private TextView loginToRegister;
+	private String loginEmailString;
+	private String loginPasswordString;
+	HttpUtility hu = new HttpUtility();
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_login); // 登录界面
+		loginEmail = (EditText) findViewById(R.id.activity_login_et_login_email);
+		loginPassword = (EditText) findViewById(R.id.activity_login_et_login_password);
+		loginButton = (Button) findViewById(R.id.activity_login_btn_login_submit);
+		loginToRegister = (TextView) findViewById(R.id.activity_login_tv_login_to_register);
+		loginToRegister.setOnClickListener(new rOnClickListener());
+		loginButton.setOnClickListener(new bOnClickListener());
+
+	}
+
+	class bOnClickListener implements OnClickListener {
+		public void onClick(View v) {
+			loginEmailString = loginEmail.getText().toString();
+			loginPasswordString = loginPassword.getText().toString();
+			Map <String, String> params = new HashMap <String, String>();
+			params.put("actiontype", "login");
+			params.put("loginEmail", loginEmailString);
+			params.put("loginPassword", loginPasswordString);
+			new LoginActivity().getResponseThread(params);
+			startIndex(v);
+		}
+
+	}
+	public void getResponseThread(final Map<String, String> params) {
+		new Thread(new Runnable(){
+			public void run() {
+				String resultHTTP = null;
+				try {
+					resultHTTP = hu.doPost(PATH,params);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				Message msg = new Message();
+	            msg.obj = resultHTTP;
+	            handlerHTTP.sendMessage(msg);
+			}
+			
+		}).start();
+		
+	}
+	@SuppressLint("HandlerLeak")
+	private Handler handlerHTTP = new Handler() {
+	    public void handleMessage(Message msg) {
+	       System.out.println(msg.obj);
+	      /* Toast.makeText(getApplication(), (CharSequence) msg.obj,Toast.LENGTH_LONG); */
+	    }
+	};
+	class rOnClickListener implements OnClickListener {
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			startRegister(v);
+		}
+
+	}
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.activity_login, menu);
+		return true;
+	}
+	public void startRegister(View v) {
+		Intent intent = new Intent(this, RegisterActivity.class);
+		startActivity(intent);
+		overridePendingTransition(R.anim.push_left_in,R.anim.push_left_out);
+	}
+	public void startIndex(View v){
+		Intent intent = new Intent(this, LeftAndRightActivity.class);
+		startActivity(intent);
+	}
+}

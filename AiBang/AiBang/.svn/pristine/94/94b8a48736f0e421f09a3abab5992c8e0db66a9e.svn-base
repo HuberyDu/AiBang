@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IndexActivity" >
+
+    <edu.jxsd.x3510.view.SlidingMenuView
+        android:id="@+id/sliding_menu_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        
+       <LinearLayout 
+        	android:id="@+id/activity_index_ll_left_sliding_tab"
+        	android:background="@android:color/darker_gray"
+        	android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:padding="5dip"
+        	android:layout_height="fill_parent">
+            <Button
+                android:text="@string/index_hide_menu"
+                android:onClick="hideMenu"
+                android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"/>
+            <Button
+                android:text="@string/index_show_right_menu"
+                android:onClick="showRightMenu"
+                android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"/>
+            <Button
+                android:text="@string/index_menu1"
+                android:id="@+id/activity_index_btn_1"
+                android:onClick="changeTab1"
+                android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"/>
+            <Button
+                android:text="@string/index_menu2"
+                android:id="@+id/activity_index_btn_2"
+                 android:onClick="changeTab2"
+                android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"/>
+          
+    	</LinearLayout>
+        
+    	
+        <FrameLayout 
+        	android:id="@+id/activity_index_fl_sliding_body"
+            android:layout_width="fill_parent"
+        	android:layout_height="fill_parent">
+            
+    	</FrameLayout>
+    	
+        <LinearLayout 
+        	android:id="@+id/activity_index_ll_right_sliding_tab"
+        	android:background="@android:color/darker_gray"
+        	android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:padding="5dip"
+        	android:layout_height="fill_parent">
+            <Button
+                android:text="@string/index_hide_menu"
+                android:onClick="hideMenu"
+                android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"/>
+            <Button
+                android:text="@string/index_show_left_menu"
+                android:onClick="showLeftMenu"
+                android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"/>
+            <Button
+                android:text="@string/index_menu3"
+                android:id="@+id/activity_index_btn_3"
+                android:onClick="changeTab3"
+                android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"/>
+            <Button
+                android:text="@string/index_menu4"
+                android:id="@+id/activity_index_btn_4"
+                 android:onClick="changeTab4"
+                android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"/>
+            <Button
+                android:text="@string/index_btn_show_adjustable"
+                android:id="@+id/activity_index_btn_5"
+                android:onClick="changeTab4"
+                android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"/>
+          
+    	</LinearLayout>
+        
+        
+    </edu.jxsd.x3510.view.SlidingMenuView>
+
+</RelativeLayout>

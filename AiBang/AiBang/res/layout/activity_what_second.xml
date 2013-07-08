@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/whats2">
+    
+       <TextView 
+           android:id="@+id/what2_text"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/what2_text"
+           android:textSize="20sp"
+           android:layout_marginTop="100dp"
+           android:layout_marginLeft="20dp"
+           />
+       <ImageView
+           android:id="@+id/whats2_btn"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/what_btn"
+           android:layout_alignParentTop="true"
+           android:layout_alignParentRight="true"
+           android:layout_marginTop="100dp"
+           android:src="@drawable/enter_selector"
+           />
+</RelativeLayout>

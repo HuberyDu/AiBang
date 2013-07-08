@@ -1,0 +1,85 @@
+#
+# An unexpected error has been detected by Java Runtime Environment:
+#
+#  Internal Error (classFileParser.cpp:2923), pid=8912, tid=8480
+#  Error: ShouldNotReachHere()
+#
+# Java VM: Java HotSpot(TM) Client VM (11.0-b15 mixed mode windows-x86)
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x01909c00):  JavaThread "Unknown thread" [_thread_in_vm, id=8480, stack(0x00260000,0x002b0000)]
+
+Stack: [0x00260000,0x002b0000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x01909c00 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=8480, stack(0x00260000,0x002b0000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Dynamic libraries:
+0x00400000 - 0x00424000 	D:\Java\jre6\bin\javaw.exe
+0x77b70000 - 0x77cac000 	C:\Windows\SYSTEM32\ntdll.dll
+0x75e20000 - 0x75ef4000 	C:\Windows\system32\kernel32.dll
+0x75a40000 - 0x75a8b000 	C:\Windows\system32\KERNELBASE.dll
+0x77630000 - 0x776d0000 	C:\Windows\system32\ADVAPI32.dll
+0x774f0000 - 0x7759c000 	C:\Windows\system32\msvcrt.dll
+0x779b0000 - 0x779c9000 	C:\Windows\SYSTEM32\sechost.dll
+0x77ce0000 - 0x77d81000 	C:\Windows\system32\RPCRT4.dll
+0x77850000 - 0x77919000 	C:\Windows\system32\USER32.dll
+0x77440000 - 0x7748e000 	C:\Windows\system32\GDI32.dll
+0x76ff0000 - 0x76ffa000 	C:\Windows\system32\LPK.dll
+0x76280000 - 0x7631d000 	C:\Windows\system32\USP10.dll
+0x77cc0000 - 0x77cdf000 	C:\Windows\system32\IMM32.DLL
+0x77700000 - 0x777cc000 	C:\Windows\system32\MSCTF.dll
+0x7c340000 - 0x7c396000 	D:\Java\jre6\bin\msvcr71.dll
+0x6d800000 - 0x6da56000 	D:\Java\jre6\bin\client\jvm.dll
+0x75bf0000 - 0x75c22000 	C:\Windows\system32\WINMM.dll
+0x757a0000 - 0x757ec000 	C:\Windows\system32\apphelp.dll
+0x6d280000 - 0x6d288000 	D:\Java\jre6\bin\hpi.dll
+0x77430000 - 0x77435000 	C:\Windows\system32\PSAPI.DLL
+0x6d7b0000 - 0x6d7bc000 	D:\Java\jre6\bin\verify.dll
+0x6d320000 - 0x6d33f000 	D:\Java\jre6\bin\java.dll
+0x6d7f0000 - 0x6d7ff000 	D:\Java\jre6\bin\zip.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 -Xbootclasspath:D:\SDK\adt-bundle-windows-x86\sdk\platforms\android-17\android.jar 
+java_command: edu.jxsd.x3510.utlis.DownPageFromURL
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=D:\Java\jdk1.6.0_10
+JRE_HOME=D:\Java\jre6
+CLASSPATH= .;D:\Java\jdk1.6.0_10lib;D:\Java\jdk1.6.0_10lib\tools.jar;D:\Apache Software Foundation\Tomcat 6.0\lib;D:\Program Files\sqljdbc_4.0\chs\sqljdbc4.jar
+PATH=D:/Java/jre6/bin/client;D:/Java/jre6/bin;D:/Java/jre6/lib/i386;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Dell\DW WLAN Card;C:\Program Files\ATI Technologies\ATI.ACE\Core-Static;D:\Java\jdk1.6.0_10\bin;D:\Java\jdk1.6.0_10\jre\bin;C:\Program Files\Microsoft SQL Server\90\DTS\Binn\;C:\Program Files\Microsoft SQL Server\90\Tools\binn\;C:\Program Files\Microsoft SQL Server\90\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\;c:\windows\system32;D:\Program Files\Rational\common;D:\Program Files\TortoiseSVN\bin;D:\Program Files\MySQL\MySQL Server 5.0\bin;c:\Program Files\Common Files\Ulead Systems\MPEG;D:\Program Files\Lenovo\Bluetooth Software\;C:\Program Files\Microsoft SQL Server\80\Tools\Binn\;C:\Program Files\IDM Computer Solutions\UltraEdit\;E:\Program Files\DBank\ClickUp;E:\Program Files\DBank\ClickUp;D:\eclipse;
+USERNAME=DELL
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=x86 Family 6 Model 37 Stepping 5, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows NT 6.1 Build 7601 Service Pack 1
+
+CPU:total 4 (8 cores per cpu, 2 threads per core) family 6 model 5 stepping 5, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, ht
+
+Memory: 4k page, physical 2097151k(749052k free), swap 4194303k(1748968k free)
+
+vm_info: Java HotSpot(TM) Client VM (11.0-b15) for windows-x86 JRE (1.6.0_10-rc2-b32), built on Sep 12 2008 00:52:11 by "java_re" with MS VC++ 7.1
+
+time: Wed May 29 23:32:25 2013
+elapsed time: 0 seconds
+

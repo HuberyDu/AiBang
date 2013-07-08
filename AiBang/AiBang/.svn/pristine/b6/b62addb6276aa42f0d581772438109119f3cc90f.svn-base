@@ -1,0 +1,374 @@
+package edu.jxsd.x3510.activity;
+
+import java.util.LinkedList;
+
+
+import android.annotation.SuppressLint;
+import android.app.FragmentTransaction;
+import android.content.DialogInterface;
+
+import com.google.android.gms.internal.af.h;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.MapView;
+import com.slidingmenu.lib.SlidingMenu;
+
+import android.annotation.SuppressLint;
+import android.app.FragmentTransaction;
+
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.location.LocationManager;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.slidingmenu.lib.SlidingMenu;
+
+
+import edu.jxsd.x3510.bean.HelpMessage;
+import edu.jxsd.x3510.fragments.Map;
+
+
+import edu.jxsd.x3510.fragments.Map;
+import edu.jxsd.x3510.utlis.PictureUtlis;
+import edu.jxsd.x3510.view.MyListView;
+import edu.jxsd.x3510.view.MyListView.OnRefreshListener;
+
+@SuppressLint("NewApi")
+public class LeftAndRightActivity extends BaseActivity {
+
+	private LinkedList<HelpMessage> data;
+	private BaseAdapter adapter;
+	private Button helpButton;
+	private Button personalmsgButton;
+	private Button commentButton;
+	private Button personalPageButton;
+	private Button mapButton;
+	private ImageView search;
+		
+	/*public View mMapViewContainer;
+	public MapView mMapView;*/
+
+	public LeftAndRightActivity() {
+		super(R.string.left_and_right);
+	}
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		helpButton = (Button) findViewById(R.id.left_behind_btn_help);
+		helpButton.setOnClickListener(new hOnclickListener());
+
+		mapButton = (Button)findViewById(R.id.left_behind_btn_map);
+		mapButton.setOnClickListener(new mOnclickListener());
+		
+		personalmsgButton = (Button)findViewById(R.id.left_behind_btn_personalmsg);
+
+		personalmsgButton = (Button) findViewById(R.id.left_behind_btn_personalmsg);
+
+		personalmsgButton.setOnClickListener(new msgOnclickListener());
+		commentButton = (Button) findViewById(R.id.left_behind_btn_comment);
+		commentButton.setOnClickListener(new cOnclickListener());
+		personalPageButton = (Button) findViewById(R.id.left_behind_btn_personalPage);
+		personalPageButton.setOnClickListener(new pageOnclickListener());
+		search = (ImageView) findViewById(R.id.activity_home_page_tv_search);
+		// search.setOnClickListener(new sOnclickListener());
+
+		setSlidingMenu();
+		
+
+		data = new LinkedList <HelpMessage>();
+		/*data = initData(data);*/
+		for(int i=0;i<10;i++){
+			HelpMessage hp = new HelpMessage();
+			hp.setPhotoPotrait(R.drawable.a101+i);
+			data.add(hp);
+		}
+		
+		
+		final MyListView listView = (MyListView) findViewById(R.id.activity_home_page_mlv_listview);
+		listView.setDividerHeight(1);
+		final Spinner spinner = (Spinner) findViewById(R.id.activity_home_page_spinner_school);
+		final TextView edit = (TextView) findViewById(R.id.activity_home_page_tv_edit);
+
+		edit.setOnClickListener(new eOnClickListener());
+
+		ArrayAdapter<CharSequence> adapterSpinner = ArrayAdapter
+				.createFromResource(this, R.array.school_type,
+						R.layout.my_spinner);
+		// Specify the layout to use when the list of choices appears
+		adapterSpinner.setDropDownViewResource(R.layout.my_spinner);
+		spinner.setAdapter(adapterSpinner);
+
+		adapter = new MyAdapter();
+		listView.setAdapter(adapter);
+
+		listView.setonRefreshListener(new OnRefreshListener() {
+			public void onRefresh() {
+				new AsyncTask<Void, Void, Void>() {
+					protected Void doInBackground(Void... params) {
+						try {
+							Thread.sleep(1000);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+						
+						return null;
+					}
+
+					@Override
+					protected void onPostExecute(Void result) {
+						adapter.notifyDataSetChanged();
+						listView.onRefreshComplete();
+					}
+
+				}.execute();
+			}
+		});
+	}
+
+	class hOnclickListener implements OnClickListener {
+
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			Intent intent = new Intent(LeftAndRightActivity.this,
+					LeftAndRightActivity.class);
+			startActivity(intent);
+		}
+
+	}
+
+	
+	class mOnclickListener implements OnClickListener{
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			Intent intent = new Intent(LeftAndRightActivity.this, MapActivity.class);
+			startActivity(intent);
+		}
+		
+	}
+
+
+	class msgOnclickListener implements OnClickListener {
+
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			Intent intent = new Intent(LeftAndRightActivity.this, null);
+			startActivity(intent);
+		}
+
+	}
+
+	class cOnclickListener implements OnClickListener {
+
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			Intent intent = new Intent(LeftAndRightActivity.this, null);
+			startActivity(intent);
+		}
+
+	}
+
+	class pageOnclickListener implements OnClickListener {
+
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			Intent intent = new Intent(LeftAndRightActivity.this,
+					PersonalPageActivity.class);
+			startActivity(intent);
+		}
+
+	}
+
+	class sOnclickListener implements OnClickListener {
+
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			Intent intent = new Intent(LeftAndRightActivity.this,
+					RegisterActivity.class);
+			startActivity(intent);
+		}
+
+	}
+
+	// 初始化SlidingMenu
+	public void setSlidingMenu() {
+		getSlidingMenu().setMode(SlidingMenu.LEFT_RIGHT);
+		getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+
+/*		getSupportFragmentManager()
+		.beginTransaction()
+		.replace(R.id.menu_frame_two, new SampleListFragment())
+		.commit();*/
+		
+		setContentView(R.layout.activity_home_page);
+		
+		getSlidingMenu().setSecondaryMenu(R.layout.right_behind);
+		getSlidingMenu().setSecondaryShadowDrawable(
+				R.drawable.shadowright_shape);
+		
+		
+		getSlidingMenu().setSecondBehindOffsetRes(
+				R.dimen.slidingmenu_right_offset);
+	}
+
+	class MyAdapter extends BaseAdapter {
+		public View getView(int position, View convertView, ViewGroup parent) {
+			convertView = LayoutInflater.from(getApplicationContext()).inflate(
+					R.layout.activity_home_page_item, null);
+			/*
+			 * TextView textView = (TextView) convertView
+			 * .findViewById(R.id.textView_item);
+			 * textView.setText(data.get(position));
+			 */
+			
+			ImageView iv = (ImageView) convertView
+					.findViewById(R.id.activity_home_page_item_head_portrait);
+			
+			Drawable drawable = getResources().getDrawable(
+					data.get(position).getPhotoPotrait());
+			setHeadPortrait(iv, drawable);
+
+			/*
+			 * ImageView ivPic = (ImageView)
+			 * convertView.findViewById(R.id.activity_home_page_item_iv_pic);
+			 * Drawable drawablePic =
+			 * getResources().getDrawable(R.drawable.girl);
+			 * setHeadPortrait(ivPic,drawablePic);
+			 */
+			return convertView;
+		}
+
+		public long getItemId(int position) {
+			return position;
+		}
+
+		public Object getItem(int position) {
+			return data.get(position);
+		}
+
+		public int getCount() {
+			return data.size();
+		}
+	}
+
+	public void setHeadPortrait(ImageView iv, Drawable drawable) {
+
+		BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
+		Bitmap bitmap = bitmapDrawable.getBitmap();
+
+		BitmapDrawable bbb = new BitmapDrawable(PictureUtlis.toRoundCorner(
+				bitmap, 10));
+		iv.setImageDrawable(bbb);
+	}
+
+	class eOnClickListener implements OnClickListener {
+
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			Intent intent = new Intent(LeftAndRightActivity.this,
+					SendHelpMsgActivity.class);
+			startActivity(intent);
+		}
+	}
+
+/*	public LinkedList<HelpMessage> initData(LinkedList<HelpMessage> data){
+		HelpMessage hp = new HelpMessage();
+		hp.setPhotoPotrait(R.drawable.a101);
+		hp.setUserName("艾尔莎");
+		hp.setHelpTime("1分钟前");
+		hp.setHelpContent("我的自行车刹车失灵，现在寻求修理山地车高手，帮忙修理一下我的爱车");
+		hp.setAddressName("江西师大惟义楼");
+		hp.setComment("3");
+		data.add(hp);
+		
+		hp.setPhotoPotrait(R.drawable.a102);
+		hp.setUserName("李雅");
+		hp.setHelpTime("2分钟前");
+		hp.setHelpContent("由于要去占座位，早上八点，哪位好心人能帮忙带早餐到图书馆来！");
+		hp.setAddressName("江西师大图文信息中心");
+		hp.setComment("1");
+		data.add(hp);
+		
+		hp.setPhotoPotrait(R.drawable.a103);
+		hp.setUserName("小小艾");
+		hp.setHelpTime("5分钟前");
+		hp.setHelpContent("由于快毕业了，都还没有女朋友，不想带着遗憾离开校园，真心求交往！");
+		hp.setAddressName("江西师大第七栋宿舍");
+		hp.setComment("13");
+		data.add(hp);
+		
+		hp.setPhotoPotrait(R.drawable.a104);
+		hp.setUserName("林蔚");
+		hp.setHelpTime("9分钟前");
+		hp.setHelpContent("求带一份鱼香肉丝盖饭，么么哒！");
+		hp.setAddressName("江西师大第一栋宿舍");
+		hp.setComment("3");
+		data.add(hp);
+		
+		hp.setPhotoPotrait(R.drawable.a105);
+		hp.setUserName("小马哥");
+		hp.setHelpTime("20分钟前");
+		hp.setHelpContent("怎么能忘记一个人呢？师兄们出出主意");
+		hp.setAddressName("江西师大惟义楼");
+		hp.setComment("2");
+		data.add(hp);
+		
+		hp.setPhotoPotrait(R.drawable.a106);
+		hp.setUserName("我是小小酥");
+		hp.setHelpTime("31分钟前");
+		hp.setHelpContent("长时间对着电脑皮肤果然会边差么，又想皮肤好，又不能耽误工作和学习，怎么破？");
+		hp.setAddressName("江西师大体育馆");
+		hp.setComment("9");
+		data.add(hp);
+		
+		hp.setPhotoPotrait(R.drawable.a107);
+		hp.setUserName("马玉琼");
+		hp.setHelpTime("39分钟前");
+		hp.setHelpContent("毕业大甩卖啦，各种复习资料，各种生活用品啊，买到就是抢到啊！！！");
+		hp.setAddressName("江西师大第三宿舍楼");
+		hp.setComment("0");
+		data.add(hp);
+		
+		hp.setPhotoPotrait(R.drawable.a108);
+		hp.setUserName("上官韩寒");
+		hp.setHelpTime("50分钟前");
+		hp.setHelpContent("有人一起去西藏的么，骑车川藏线啊，暑假走起啊，私信啊！");
+		hp.setAddressName("江西师大第三宿舍楼");
+		hp.setComment("5");
+		data.add(hp);
+		
+		hp.setPhotoPotrait(R.drawable.a101);
+		hp.setUserName("小雅");
+		hp.setHelpTime("1个小时前");
+		hp.setHelpContent("求交化妆，我想学化妆啊啊啊啊啊，每次看到别人哪一个大化妆包沫沫蹭蹭的 我就好羡慕有木有啊 指挥涂睫毛膏啊 眼线度画不利索的妹子伤不起啊啊啊");
+		hp.setAddressName("江西师大第四宿舍楼");
+		hp.setComment("3");
+		data.add(hp);
+		
+		return data;
+	}*/
+}
